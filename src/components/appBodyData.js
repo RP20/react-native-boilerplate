@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import HTMLView from 'react-native-htmlview';
 import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon } from 'native-base';
+import TimeAgo from 'react-native-timeago';
 
 export default class AppBodyData extends Component {
   render(){
@@ -23,7 +24,7 @@ export default class AppBodyData extends Component {
                 <CardItem>
                   <Button transparent>
                       <Icon active name="time" />
-                      <Text>{articleData.published.$t}</Text>
+                      <Text><TimeAgo time ={articleData.published.$t} /></Text>
                   </Button>
                   <Button transparent>
                       <Icon active name="chatbubbles" />
