@@ -8,7 +8,7 @@ export default class AppHeader extends Component {
         <Header>
             <Left>
                 <Button transparent>
-                    <Icon name='arrow-back' />
+                    <Icon name='menu' />
                 </Button>
             </Left>
             <Body>
@@ -16,7 +16,7 @@ export default class AppHeader extends Component {
             </Body>
             <Right>
                 <Button transparent>
-                    <Icon name='menu' />
+                    <Icon name='person' />
                 </Button>
             </Right>
         </Header>

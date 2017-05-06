@@ -136,7 +136,7 @@ export default {
 
 
     // Footer
-  footerHeight: 55,
+  footerHeight: 45,
   footerDefaultBg: '#f2f2f2',
 
 
@@ -158,8 +158,8 @@ export default {
 
 
     // Header
-  toolbarBtnColor: '#fff',
-  toolbarDefaultBg: '#2874F0',
+  toolbarBtnColor: '#000',
+  toolbarDefaultBg: 'white',
   toolbarHeight: (platform === 'ios') ? 64 : 56,
   toolbarIconSize: (platform === 'ios') ? 20 : 22,
   toolbarSearchIconSize: (platform === 'ios') ? 20 : 23,

@@ -7,17 +7,14 @@ export default class AppFooter extends Component {
     return (
       <Footer >
           <FooterTab>
-              <Button>
-                  <Icon name="apps" />
+              <Button active>
+                  <Icon active name="apps" />
               </Button>
               <Button>
                   <Icon name="camera" />
               </Button>
-              <Button active>
-                  <Icon active name="navigate" />
-              </Button>
               <Button>
-                  <Icon name="person" />
+                  <Icon name="navigate" />
               </Button>
           </FooterTab>
       </Footer>
