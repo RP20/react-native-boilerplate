@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import HTMLView from 'react-native-htmlview';
-import { Content, Card, CardItem, Body, Left, Thumbnail } from 'native-base';
+import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon } from 'native-base';
 
 export default class AppBodyData extends Component {
   render(){
@@ -19,6 +19,16 @@ export default class AppBodyData extends Component {
                 </CardItem>
                 <CardItem content>
                     <HTMLView value = {articleData.content.$t} />
+                </CardItem>
+                <CardItem>
+                  <Button transparent>
+                      <Icon active name="time" />
+                      <Text>{articleData.published.$t}</Text>
+                  </Button>
+                  <Button transparent>
+                      <Icon active name="chatbubbles" />
+                      <Text>{articleData.thr$total.$t} Comments</Text>
+                  </Button>
                 </CardItem>
             </Card>
         )

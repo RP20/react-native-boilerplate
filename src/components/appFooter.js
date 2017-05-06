@@ -5,7 +5,7 @@ import { Footer, FooterTab, Button, Icon } from 'native-base';
 export default class AppFooter extends Component {
   render() {
     return (
-      <Footer >
+      <Footer>
           <FooterTab>
               <Button active>
                   <Icon active name="apps" />
