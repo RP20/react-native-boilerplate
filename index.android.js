@@ -10,6 +10,7 @@ import AppFooter from './src/components/appFooter';
 import AppBody from './src/components/appBody';
 
 export default class MyProject extends Component {
+
   render() {
     return (
       <StyleProvider style={getTheme(commonColor)}>
