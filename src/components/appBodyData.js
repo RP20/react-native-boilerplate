@@ -8,7 +8,7 @@ export default class AppBodyData extends Component {
 
     let articles = this.props.data.map(function(articleData, index) {
         return (
-          <Card>
+          <Card key={index}>
                 <CardItem>
                 <Left>
                     <Thumbnail source={require('../img/logo.png')}/>
