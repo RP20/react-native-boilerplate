@@ -21,7 +21,6 @@ export default class Feed extends Component {
     super()
     this.state = {
       data: [],
-      showLoader: true
     }
   }
 
@@ -33,17 +32,8 @@ export default class Feed extends Component {
     });
   }
 
-  setTimeInterval() {
-    setTimeout(() => {
-      this.setState({
-        showLoader: false
-      });
-    }, 3000);
-  }
-
   componentDidMount() {
       this.getData();
-      this.setTimeInterval();
   }
 
   render() {

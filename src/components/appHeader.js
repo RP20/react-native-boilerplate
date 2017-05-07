@@ -9,7 +9,7 @@ export default class AppHeader extends Component {
         <Header>
             <Left>
                 <Button transparent>
-                    <Icon name='menu' />
+                    <Icon name='menu' onPress={()=>Actions.signup()}/>
                 </Button>
             </Left>
             <Body>
