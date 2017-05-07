@@ -3,6 +3,7 @@ import { Text, Image } from 'react-native';
 import HTMLView from 'react-native-htmlview';
 import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon } from 'native-base';
 import TimeAgo from 'react-native-timeago';
+import FitImage from 'react-native-fit-image';
 import { hello, GetImage, ContentSnippet } from '../helpers/helpers';
 
 export default class AppBodyData extends Component {
@@ -20,8 +21,7 @@ export default class AppBodyData extends Component {
                 </Left>
                 </CardItem>
                 <CardItem>
-                  <Image source={{uri: GetImage(articleData.content.$t)}}
-                  style={{width: 350, height: 200}} />
+                  <FitImage source={{uri: GetImage(articleData.content.$t)}} />
                 </CardItem>
                 <CardItem content>
                     <HTMLView value = {ContentSnippet(articleData.content.$t)} />
