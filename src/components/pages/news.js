@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, ActivityIndicator, StyleSheet} from 'react-native';
 import {
   Container,
   Content,
@@ -9,35 +9,22 @@ import {
   CardItem,
   Thumbnail,
   Left,
-  Body
+  Body,
+  Spinner
 } from 'native-base';
 import {AppFooter} from '../appFooter';
 import NewsData from './newsData';
-
-const cards = [
-  {
-    text: 'title',
-    name: 'title',
-
-  },
-  {
-    text: 'title',
-    name: 'title',
-
-  },
-  {
-    text: 'title',
-    name: 'title',
-
-  }
-];
+import TimerMixin from 'react-timer-mixin';
+import RenderIf from 'render-if';
 
 export default class News extends Component {
 
   constructor() {
-    super()
+    super();
     this.state = {
-      data: []
+      data: [],
+      showLoader: true,
+      showNewsData: false
     }
   }
 
@@ -49,13 +36,32 @@ export default class News extends Component {
     });
   }
 
+  setTimeInterval() {
+    setTimeout(() => {
+      this.setState({
+        showLoader: false,
+        showNewsData: true
+      });
+    }, 3000);
+  }
+
   componentDidMount() {
       this.getData();
+      this.setTimeInterval();
   }
 
   render() {
     return (
-      <NewsData data = {this.state.data} />
+        <Container>
+          <Content>
+              {RenderIf(this.state.showLoader)(
+                <Spinner style={{marginTop: 200}}/>
+              )}
+              {RenderIf(this.state.showNewsData)(
+                <NewsData data={this.state.data}/>
+              )}
+          </Content>
+        </Container>
     );
   }
 

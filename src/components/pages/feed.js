@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
-import { Content, Card, CardItem, Body } from 'native-base';
 import FeedData from './feedData';
+import {
+  Container,
+  Content,
+  Icon,
+  DeckSwiper,
+  Card,
+  CardItem,
+  Thumbnail,
+  Left,
+  Body,
+  Spinner
+} from 'native-base';
+import RenderIf from 'render-if';
 
-export default class AppBody extends Component {
+export default class Feed extends Component {
 
   constructor() {
     super()
     this.state = {
-      data: []
+      data: [],
+      showLoader: true
     }
   }
 
@@ -20,15 +33,28 @@ export default class AppBody extends Component {
     });
   }
 
+  setTimeInterval() {
+    setTimeout(() => {
+      this.setState({
+        showLoader: false
+      });
+    }, 3000);
+  }
+
   componentDidMount() {
       this.getData();
+      this.setTimeInterval();
   }
 
   render() {
     return (
-      <FeedData data = {this.state.data} />
+      <Container>
+        <Content>
+          <FeedData data={this.state.data}/>
+        </Content>
+      </Container>
     );
   }
 }
 
-module.export = AppBody;
+module.export = Feed;

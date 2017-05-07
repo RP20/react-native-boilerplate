@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
 import { Text, Image } from 'react-native';
 import HTMLView from 'react-native-htmlview';
-import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon, View } from 'native-base';
+import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon, View, Spinner } from 'native-base';
 import TimeAgo from 'react-native-timeago';
 import FitImage from 'react-native-fit-image';
 import { hello, GetImage, ContentSnippet } from '../../helpers/helpers';
 import AppHeader from '../appHeader';
+import RenderIf from 'render-if';
 
 export default class FeedData extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      showLoader: true,
+      showFeedData: false,
+    }
+  }
+
+  setTimeInterval() {
+    setTimeout(() => {
+      this.setState({
+        showLoader: false,
+        showFeedData: true
+      });
+    }, 3000);
+  }
+
+  componentDidMount() {
+      this.setTimeInterval();
+  }
+
   render(){
 
     let articles = this.props.data.map(function(articleData, index) {
@@ -50,7 +73,12 @@ export default class FeedData extends Component {
     return (
       <Content>
           <AppHeader/>
-          <Content>{articles}</Content>
+          {RenderIf(this.state.showLoader)(
+            <Spinner style={{marginTop: 100}}/>
+          )}
+          {RenderIf(this.state.showFeedData)(
+            <Content>{articles}</Content>
+          )}
       </Content>
     );
   }

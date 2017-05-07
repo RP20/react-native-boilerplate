@@ -1,13 +1,33 @@
 import React, { Component } from 'react';
-import { Text, Image } from 'react-native';
+import { Text, Image, ActivityIndicator } from 'react-native';
 import HTMLView from 'react-native-htmlview';
-import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon, View } from 'native-base';
+import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon, View, Spinner } from 'native-base';
 import TimeAgo from 'react-native-timeago';
 import FitImage from 'react-native-fit-image';
 import { hello, GetImage, ContentSnippet } from '../../helpers/helpers';
 import AppHeader from '../appHeader';
 
 export default class NewsData extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      visible: true
+    }
+  }
+
+  setTimeInterval() {
+    setTimeout(() => {
+      this.setState({
+        visible: false
+      });
+    }, 3000);
+  }
+
+  componentDidMount() {
+      this.setTimeInterval();
+  }
+
   render(){
 
     let articles = this.props.data.map(function(articleData, index) {
@@ -49,7 +69,9 @@ export default class NewsData extends Component {
 
     return (
       <Content style={{marginTop: 70}}>
-          <Content>{articles}</Content>
+          <Content>
+            {articles}
+          </Content>
       </Content>
     );
   }
