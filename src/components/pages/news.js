@@ -42,7 +42,7 @@ export default class News extends Component {
         showLoader: false,
         showNewsData: true
       });
-    }, 3000);
+    }, 1000);
   }
 
   componentDidMount() {
@@ -55,7 +55,7 @@ export default class News extends Component {
         <Container>
           <Content>
               {RenderIf(this.state.showLoader)(
-                <Spinner style={{marginTop: 200}}/>
+                <Spinner color='skyblue' style={{marginTop: 200}}/>
               )}
               {RenderIf(this.state.showNewsData)(
                 <NewsData data={this.state.data}/>

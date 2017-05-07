@@ -24,7 +24,7 @@ export default class FeedData extends Component {
         showLoader: false,
         showFeedData: true
       });
-    }, 3000);
+    }, 1000);
   }
 
   componentDidMount() {
@@ -74,7 +74,7 @@ export default class FeedData extends Component {
       <Content>
           <AppHeader/>
           {RenderIf(this.state.showLoader)(
-            <Spinner style={{marginTop: 100}}/>
+            <Spinner color='skyblue' style={{marginTop: 100}}/>
           )}
           {RenderIf(this.state.showFeedData)(
             <Content>{articles}</Content>
