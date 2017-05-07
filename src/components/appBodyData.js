@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import { Text, Image } from 'react-native';
 import HTMLView from 'react-native-htmlview';
 import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon } from 'native-base';
 import TimeAgo from 'react-native-timeago';
+import { hello, GetImage, ContentSnippet } from '../helpers/helpers';
 
 export default class AppBodyData extends Component {
   render(){
@@ -18,8 +19,12 @@ export default class AppBodyData extends Component {
                     </Body>
                 </Left>
                 </CardItem>
+                <CardItem>
+                  <Image source={{uri: GetImage(articleData.content.$t)}}
+                  style={{width: 350, height: 200}} />
+                </CardItem>
                 <CardItem content>
-                    <HTMLView value = {articleData.content.$t} />
+                    <HTMLView value = {ContentSnippet(articleData.content.$t)} />
                 </CardItem>
                 <CardItem>
                   <Button transparent>
