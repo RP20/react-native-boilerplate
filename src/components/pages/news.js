@@ -11,7 +11,8 @@ import {
   Left,
   Body
 } from 'native-base';
-import {AppFooter} from '../appFooter'
+import {AppFooter} from '../appFooter';
+import NewsData from './newsData';
 
 const cards = [
   {
@@ -34,40 +35,30 @@ const cards = [
 export default class News extends Component {
 
   constructor() {
-    super();
+    super()
     this.state = {
-      active: true
-    };
+      data: []
+    }
   }
+
+  getData() {
+    fetch('https://www.thewallscript.com/blogfeed/javascript/10', {method: 'GET'}).then((response) => response.json()).then((responseJson) => {
+      this.setState({data: responseJson.feed.entry});
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+
+  componentDidMount() {
+      this.getData();
+  }
+
   render() {
     return (
-
-      <Content style={{
-        marginTop: 75
-      }}>
-        <View>
-          <DeckSwiper
-            dataSource={cards}
-            renderItem={item => <Card style={{
-            elevation: 3
-          }}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={item.image}/>
-                <Body>
-                  <Text>{item.text}</Text>
-                  <Text note>NativeBase</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            
-
-          </Card>}/>
-        </View>
-      </Content>
-
+      <NewsData data = {this.state.data} />
     );
   }
+
 }
 
 module.export = News;

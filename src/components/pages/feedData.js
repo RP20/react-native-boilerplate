@@ -4,8 +4,8 @@ import HTMLView from 'react-native-htmlview';
 import { Content, Card, CardItem, Body, Left, Thumbnail, Button, Icon, View } from 'native-base';
 import TimeAgo from 'react-native-timeago';
 import FitImage from 'react-native-fit-image';
-import { hello, GetImage, ContentSnippet } from '../helpers/helpers';
-import AppHeader from './appHeader';
+import { hello, GetImage, ContentSnippet } from '../../helpers/helpers';
+import AppHeader from '../appHeader';
 
 export default class FeedData extends Component {
   render(){
@@ -15,7 +15,7 @@ export default class FeedData extends Component {
           <Card key={articleData.published.$t}>
                 <CardItem>
                 <Left>
-                    <Thumbnail source={require('../img/logo.png')}/>
+                    <Thumbnail source={require('../../img/logo.png')}/>
                     <Body>
                         <Text>{articleData.title.$t}</Text>
                     </Body>

@@ -8,7 +8,7 @@ import commonColor from './src/themes/variables/commonColor';
 
 import AppHeader from './src/components/appHeader';
 import AppFooter from './src/components/appFooter';
-import Feed from './src/components/feed';
+import Feed from './src/components/pages/feed';
 
 import News from './src/components/pages/news';
 import About from './src/components/pages/about';
