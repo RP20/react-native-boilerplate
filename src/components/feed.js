@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Content, Card, CardItem, Body } from 'native-base';
-import AppBodyData from './appBodyData';
+import FeedData from './feedData';
 
 export default class AppBody extends Component {
 
@@ -13,15 +13,11 @@ export default class AppBody extends Component {
   }
 
   getData() {
-  return fetch('https://www.thewallscript.com/blogfeed/javascript/10')
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({data: responseJson.feed.entry });
-    })
-    .catch((error) => {
+    fetch('https://www.thewallscript.com/blogfeed/blog.json', {method: 'GET'}).then((response) => response.json()).then((responseJson) => {
+      this.setState({data: responseJson.feed.entry});
+    }).catch((error) => {
       console.error(error);
     });
-
   }
 
   componentDidMount() {
@@ -30,7 +26,7 @@ export default class AppBody extends Component {
 
   render() {
     return (
-      <AppBodyData data = {this.state.data} />
+      <FeedData data = {this.state.data} />
     );
   }
 }

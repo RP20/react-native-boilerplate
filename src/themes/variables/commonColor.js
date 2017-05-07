@@ -136,15 +136,15 @@ export default {
 
 
     // Footer
-  footerHeight: 45,
-  footerDefaultBg: '#f2f2f2',
+  footerHeight: 50,
+  footerDefaultBg: 'white',
 
 
     // FooterTab
-  tabBarTextColor: '#8bb3f4',
+  tabBarTextColor: 'gray',
   tabBarTextSize: (platform === 'ios') ? 14 : 11,
   activeTab: (platform === 'ios') ? '#007aff' : '#fff',
-  sTabBarActiveTextColor: '#007aff',
+  sTabBarActiveTextColor: 'gray',
   tabBarActiveTextColor: '#fff',
   tabActiveBgColor: (platform === 'ios') ? '#1569f4' : undefined,
 
@@ -275,7 +275,7 @@ export default {
 
 
     // Other
-  borderRadiusBase: (platform === 'ios') ? 5 : 2,
+  borderRadiusBase: 2,
   borderWidth: (1/PixelRatio.getPixelSizeForLayoutSize(1)),
   contentPadding: 10,
 

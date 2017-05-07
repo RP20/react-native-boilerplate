@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 import { Container, Content, ListItem, Text, CheckBox, Header, Left, Button, Title, Body, Right, Icon } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
 export default class AppHeader extends Component {
   render() {
@@ -16,7 +17,7 @@ export default class AppHeader extends Component {
             </Body>
             <Right>
                 <Button transparent>
-                    <Icon name='person' />
+                    <Icon name='person' onPress={()=>Actions.about()}/>
                 </Button>
             </Right>
         </Header>

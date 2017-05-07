@@ -8,7 +8,7 @@ import commonColor from './src/themes/variables/commonColor';
 
 import AppHeader from './src/components/appHeader';
 import AppFooter from './src/components/appFooter';
-import AppBody from './src/components/appBody';
+import Feed from './src/components/feed';
 
 import News from './src/components/pages/news';
 import About from './src/components/pages/about';
@@ -21,9 +21,9 @@ export default class MyProject extends Component {
       <Container>
 
         <Router>
-          <Scene key="feed" component={AppBody} title='Feed'/>
-          <Scene key="news" component={News} title='News'/>
-          <Scene key="about" component={About} title='About'/>
+        <Scene key="feed" component={Feed} title="Feed" hideNavBar={true}/>
+            <Scene key="about" component={About} title="About" hideNavBar={false}/>
+            <Scene key="news" component={News} title="News" hideNavBar={false}/>
         </Router>
 
         <AppFooter />

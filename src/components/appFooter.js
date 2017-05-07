@@ -28,12 +28,15 @@ export default class AppFooter extends Component {
           <FooterTab>
               <Button active={(this.state.activeTabName==='feed') ? true: "" } onPress={()=>{this.tabAction('feed')}}>
                   <Icon active name="apps" />
+                  <Text>Feed</Text>
               </Button>
               <Button active={(this.state.activeTabName==='news') ? true: "" } onPress={()=>{this.tabAction('news')}}>
                   <Icon name="paper" />
+                  <Text>News</Text>
               </Button>
               <Button active={(this.state.activeTabName==='about') ? true: "" } onPress={()=>{this.tabAction('about')}}>
                   <Icon name="navigate" />
+                  <Text>About</Text>
               </Button>
           </FooterTab>
       </Footer>
