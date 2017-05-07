@@ -26,8 +26,6 @@ export default class MyProject extends Component {
           <Scene key="about" component={About} title='About'/>
         </Router>
 
-
-
         <AppFooter />
       </Container>
       </StyleProvider>

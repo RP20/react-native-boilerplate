@@ -5,7 +5,15 @@ import { Actions } from 'react-native-router-flux';
 
 export default class AppFooter extends Component {
 
+  constructor(){
+    super();
+    this.state={
+      activeTabName: 'feed'
+    }
+  }
+
   tabAction(tab) {
+    this.setState({activeTabName: tab})
     if(tab == 'feed'){
       Actions.feed();
     } else if(tab == 'news'){
@@ -18,13 +26,13 @@ export default class AppFooter extends Component {
     return (
       <Footer>
           <FooterTab>
-              <Button active onPress={()=>{this.tabAction('feed')}}>
+              <Button active={(this.state.activeTabName==='feed') ? true: "" } onPress={()=>{this.tabAction('feed')}}>
                   <Icon active name="apps" />
               </Button>
-              <Button onPress={()=>{this.tabAction('news')}}>
+              <Button active={(this.state.activeTabName==='news') ? true: "" } onPress={()=>{this.tabAction('news')}}>
                   <Icon name="paper" />
               </Button>
-              <Button onPress={()=>{this.tabAction('about')}}>
+              <Button active={(this.state.activeTabName==='about') ? true: "" } onPress={()=>{this.tabAction('about')}}>
                   <Icon name="navigate" />
               </Button>
           </FooterTab>
@@ -33,4 +41,4 @@ export default class AppFooter extends Component {
   }
 }
 
-module.export = AppFooter;
+module.exports = AppFooter;
