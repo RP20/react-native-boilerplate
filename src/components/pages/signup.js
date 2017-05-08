@@ -26,9 +26,9 @@ import {
   Button
 } from 'native-base';
 import RenderIf from 'render-if';
-import Firebase from 'firebase';
+//import Firebase from 'firebase';
 import Login from './login';
-//let app = new Firebase("https://clever-bit-128009.firebaseio.com/");
+import { firebaseRef } from '../../services/firebase';
 
 //import Button from '../button';
 
@@ -44,12 +44,19 @@ export default class SignUp extends Component {
  }
 
    signup() {
-     this.setState({
-       'email': this.state.email,
-       'password': this.state.password
-     });
-
-    alert("Register with: " +this.state.email + this.state.password);
+        firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+         // Handle Errors here.
+         console.log(error.code);
+         console.log(error.message);
+         console.log("Register with: " +this.state.email + this.state.password);
+         // ...
+        });
+    //  this.setState({
+    //    'email': this.state.email,
+    //    'password': this.state.password
+    //  });
+    //
+    // alert("Register with: " +this.state.email + this.state.password);
   }
 
   goToLogin() {
@@ -75,10 +82,10 @@ export default class SignUp extends Component {
                       />
                   </Item>
                   <Button primary onPress={()=>this.signup()} style={{alignSelf: 'center', marginTop: 30}}>
-                          <Text> Log In </Text>
+                          <Text style={{color: 'white'}}> Signup </Text>
                   </Button>
                   <Button info onPress={()=>this.goToLogin()} style={{alignSelf: 'center', marginTop: 80}}>
-                          <Text> Got an Account? </Text>
+                          <Text style={{color: 'white'}}> Got an Account? </Text>
                   </Button>
               </Form>
           </Content>

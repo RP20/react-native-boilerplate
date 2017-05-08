@@ -21,17 +21,14 @@ export default class MyProject extends Component {
 
       <StyleProvider style={getTheme(commonColor)}>
       <Container>
-
         <Router>
             <Scene key="feed" component={Feed} title="Feed" hideNavBar={true}/>
             <Scene key="about" component={About} title="About" hideNavBar={false}/>
             <Scene key="news" component={News} title="News" hideNavBar={false}/>
             <Scene key="signup" component={SignUp} title="SignUp" hideNavBar={false}/>
-            <Scene key="login" component={Login} title="Log In" hideNavBar={false}/>
-
+            <Scene key="login" initial={true} component={Login} title="Log In" hideNavBar={false}/>
         </Router>
-
-        <AppFooter />
+      
       </Container>
       </StyleProvider>
     );

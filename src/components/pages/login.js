@@ -26,7 +26,7 @@ import {
   Button
 } from 'native-base';
 import RenderIf from 'render-if';
-import Firebase from 'firebase';
+import { firebaseRef } from '../../services/firebase';
 //let app = new Firebase("https://clever-bit-128009.firebaseio.com/");
 
 //import Button from '../button';
@@ -43,12 +43,20 @@ export default class Login extends Component {
  }
 
    login() {
-     this.setState({
-       'email': this.state.email,
-       'password': this.state.password
-     });
+      firebaseRef.auth().signInWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+          // Handle Errors here.
+          console.log(error.code);
+          console.log(error.message);
+          // ...
+          console.log("Login with: " + this.state.email + this.state.password);
 
-    alert("Login with: " + this.state.email + this.state.password);
+        });
+    //  this.setState({
+    //    'email': this.state.email,
+    //    'password': this.state.password
+    //  });
+
+    //alert("Login with: " + this.state.email + this.state.password);
   }
 
   goToSignUp() {
@@ -76,10 +84,10 @@ export default class Login extends Component {
                       />
                   </Item>
                   <Button primary onPress={()=>this.login()} style={{alignSelf: 'center', marginTop: 30}}>
-                          <Text> Log In </Text>
+                          <Text style={{color: 'white'}}> Log In </Text>
                   </Button>
                   <Button info onPress={()=>this.goToSignUp()} style={{alignSelf: 'center', marginTop: 80}}>
-                          <Text> Register for account? </Text>
+                          <Text style={{color: 'white'}}> Register for account? </Text>
                   </Button>
               </Form>
           </Content>

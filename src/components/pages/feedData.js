@@ -8,6 +8,7 @@ import { hello, GetImage, ContentSnippet } from '../../helpers/helpers';
 import AppHeader from '../appHeader';
 import RenderIf from 'render-if';
 
+
 export default class FeedData extends Component {
 
   constructor() {
@@ -79,7 +80,9 @@ export default class FeedData extends Component {
           {RenderIf(this.state.showFeedData)(
             <Content>{articles}</Content>
           )}
+
       </Content>
+
     );
   }
 }

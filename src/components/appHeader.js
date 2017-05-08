@@ -9,7 +9,7 @@ export default class AppHeader extends Component {
         <Header>
             <Left>
                 <Button transparent>
-                    <Icon name='menu' onPress={()=>Actions.signup()}/>
+                    <Icon name='person' onPress={()=>Actions.signup()}/>
                 </Button>
             </Left>
             <Body>
@@ -17,7 +17,7 @@ export default class AppHeader extends Component {
             </Body>
             <Right>
                 <Button transparent>
-                    <Icon name='person' onPress={()=>Actions.about()}/>
+                    <Icon name='menu' onPress={()=>Actions.about()}/>
                 </Button>
             </Right>
         </Header>
