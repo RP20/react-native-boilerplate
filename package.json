@@ -7,22 +7,22 @@
     "test": "jest"
   },
   "dependencies": {
-    "firebase": "^3.9.0",
+    "firebase": "^5.3.0",
     "native-base": "^2.1.3",
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0",
+    "react": "16.4.1",
+    "react-native": "0.56.0",
     "react-native-fit-image": "^1.4.8",
-    "react-native-htmlview": "^0.9.0",
+    "react-native-htmlview": "^0.12.1",
     "react-native-router-flux": "^3.38.0",
-    "react-native-timeago": "^0.3.0",
+    "react-native-timeago": "^0.4.0",
     "react-timer-mixin": "^0.13.3",
     "render-if": "^0.1.1"
   },
   "devDependencies": {
-    "babel-jest": "19.0.0",
-    "babel-preset-react-native": "1.9.1",
-    "jest": "19.0.2",
-    "react-test-renderer": "16.0.0-alpha.6"
+    "babel-jest": "23.4.2",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "23.4.2",
+    "react-test-renderer": "16.4.1"
   },
   "jest": {
     "preset": "react-native"
